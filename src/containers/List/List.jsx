@@ -12,27 +12,25 @@ const List = ({ key, task }) => {
             </p>
 
             <h3>Checklists:</h3>
-            <ul>
-                {task.checklists.map((item, checklistIndex) => (
-                    <li key={checklistIndex}>
-                        {item.isDone ? "✅" : "❌"} {item.checklistItem}
-                    </li>
-                ))}
-            </ul>
+
+            {task.checklists.map((item, checklistIndex) => (
+                <p key={checklistIndex}>
+                    {item.isDone ? "✅" : "❌"} {item.checklistItem}
+                </p>
+            ))}
+
             <h3>Attachments:</h3>
-            <ul>
-                {task.attachments.map((attachment, attachmentIndex) => (
-                    <li key={attachmentIndex}>
-                        <a
-                            href={attachment.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {attachment.displayText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
+            {task.attachments.map((attachment, attachmentIndex) => (
+                <p key={attachmentIndex}>
+                    <a
+                        href={attachment.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {attachment.displayText}
+                    </a>
+                </p>
+            ))}
         </li>
     );
 };
